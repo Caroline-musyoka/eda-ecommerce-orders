@@ -34,23 +34,23 @@ This project picks up where Project 1 left off: rather than re-cleaning the data
 ### Order values are right-skewed
 Mean order value (**$1,053.97**) sits well above the median (**$823.62**), with a skewness of **0.89**. A small number of large bulk orders pull the average upward — the median is the more representative "typical order."
 
-![Distribution of order values](./charts/03_totalprice_distribution.png)
+![Distribution of order values](./03_totalprice_distribution.png)
 
 ### The 8 high-value "outliers" are signal, not noise
 The IQR method flags 8 orders above $3,330. All 8 share `Quantity = 5` (the dataset's maximum) on high-priced items (Laptops, Tablets, Monitors, Printers). The Z-score method finds **0** statistical outliers (|z| ≤ 3) — these are legitimate bulk orders, not data-entry errors. No records were removed.
 
-![Boxplot of order values by product, showing outliers](./charts/04_boxplot_outliers.png)
+![Boxplot of order values by product, showing outliers](./04_boxplot_outliers.png)
 
 ### Revenue is broadly even across products
 Chair ($195,620), Printer ($195,613), and Laptop ($192,127) lead; Phone trails at $151,722. The spread across all 7 categories is within ~22% of each other — no single product dominates.
 
-![Revenue by product category](./charts/01_revenue_by_product.png)
+![Revenue by product category](./01_revenue_by_product.png)
 
 ### 41% of revenue is tied up in Cancelled/Returned orders
 Of $1,264,762 in total order value, **$519,674 (41.1%)** sits in Cancelled or Returned status. Cancelled orders alone ($276,396) represent the single largest status-revenue bucket — larger than Delivered.
 
-![Order status distribution](./charts/02_order_status.png)
-![Revenue by order status, cancelled and returned highlighted](./charts/07_revenue_at_risk.png)
+![Order status distribution](./02_order_status.png)
+![Revenue by order status, cancelled and returned highlighted](./07_revenue_at_risk.png)
 
 ### Cancel/return rates are consistent across products (~39–44%)
 Monitor (43.6%) and Tablet (43.0%) have the highest combined cancel/return rates; Desk (39.4%) and Phone (39.7%) the lowest. The ~5-point spread suggests this is a **systemic fulfilment issue**, not a product-specific one.
@@ -61,7 +61,7 @@ Online (35.3%) is notably lower than Gift Card (44.3%), Credit Card (44.0%), and
 ### TotalPrice correlates strongly with UnitPrice and Quantity
 As expected — TotalPrice is derived from these fields (r = 0.72 and r = 0.62 respectively). `ItemsInCart` correlates with `Quantity` (r = 0.65) but only weakly with `TotalPrice` (r = 0.39), suggesting cart size doesn't strongly predict order value.
 
-![Correlation matrix of numeric fields](./charts/06_correlation_heatmap.png)
+![Correlation matrix of numeric fields](./06_correlation_heatmap.png)
 
 ### Coupon usage is widespread but doesn't clearly lift order value
 74.25% of orders (891/1,200) used a coupon. Orders with a coupon averaged $1,057.64 vs. $1,043.37 without — a negligible ~1.4% difference, suggesting coupons may not be driving larger basket sizes.
@@ -69,7 +69,7 @@ As expected — TotalPrice is derived from these fields (r = 0.72 and r = 0.62 r
 ### No strong seasonality, but 2023 outperformed 2024 and 2025 (YTD)
 2023 generated $552,643 across 510 orders; 2024 fell to $480,236 (459 orders); 2025 (Jan–Jun only) is on pace for a similar run-rate (~$464K annualised) to 2024.
 
-![Monthly revenue trend](./charts/05_monthly_revenue_trend.png)
+![Monthly revenue trend](./05_monthly_revenue_trend.png)
 
 ---
 
@@ -93,7 +93,7 @@ As expected — TotalPrice is derived from these fields (r = 0.72 and r = 0.62 r
   - `Correlation Matrix` — Pearson correlations with interpretation
   - `Visual Evidence` — All 7 charts embedded
   - `Cleaned Data` — The underlying 1,200-row dataset (carried forward from Project 1)
-- **[charts/](./charts)** — Standalone PNG versions of all 7 charts
+- The 7 chart PNGs above are also included in this repo as standalone image files
 
 ---
 
